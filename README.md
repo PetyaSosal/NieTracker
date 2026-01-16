@@ -1,2 +1,0 @@
-# NieTracker
-secret site genius
