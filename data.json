@@ -66,10 +66,18 @@
       "downloadUrl": "https://www.dropbox.com/scl/fi/4gyjzt97vtistujty4763/Wallpaper-Engine-Workshop.rar?rlkey=rnylrzdszhslusjj784hpnej8&st=sgtj93ko&dl=1",
       "instruction": "Как распакуйте, в папке wallpaper_engine откройте installer.exe и установите всё. Скачается сам Wallpaper Engine. Чтобы скачивать из мастерской, нужно уже в папке WallpaperEngineWorkshopDownloader-main открыть WallpaperDownloader_en.exe и там ввести id (которое в конце ссылки после id=). Нажать после этого download снизу и готово!",
       "getUrl": ""
+    },
+    {
+      "title": "ExplorerBlurMica Windows 10/11",
+      "image": "https://i.pinimg.com/originals/2b/ae/1c/2bae1cd4159ac08549e76094838234fc.png",
+      "downloadUrl": "https://www.dropbox.com/scl/fi/vyu7frmetz4k1wnb0rhx4/Release_x64.zip?rlkey=bq62ha30olzf2vofb13e557e6&st=dz9nulaq&dl=1",
+      "instruction": "Как распакуете, в папке запустите от имени администратора register.cmd и после того, как он всё там сделает, перезагружаете компьютер и смотрим результат!",
+      "getUrl": ""
     }
   ]
 
 }
+
 
 
 
