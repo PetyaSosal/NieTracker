@@ -10,8 +10,8 @@
             --bg-main: #060314;
             --accent-purple: #8a2be2;
             --accent-pink: #bf00ff;
-            --glass-bg: rgba(255, 255, 255, 0.05); /* Чуть поднял яркость для лучшего эффекта стекла */
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
             --radius-ios: 24px;
         }
 
@@ -25,37 +25,59 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            /* ФОН С ЧАСТИЦАМИ */
+            /* ФОН С ЧАСТИЦАМИ (КРЕСТИКИ) */
             background-image: 
                 radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(191, 0, 255, 0.1) 0%, transparent 40%),
                 url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            background-attachment: fixed; /* Лечит баг с прозрачностью при скролле */
         }
 
         .lang-switcher {
-            position: fixed; top: 25px; right: 25px;
-            display: flex; background: var(--glass-bg);
-            padding: 4px; border-radius: 100px;
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            display: flex;
+            background: var(--glass-bg);
+            padding: 4px;
+            border-radius: 100px;
             border: 1px solid var(--glass-border);
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
             z-index: 1000;
         }
 
         .lang-btn {
-            padding: 6px 14px; border-radius: 100px; border: none;
-            background: transparent; color: rgba(255,255,255,0.5);
-            cursor: pointer; font-size: 11px; font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 100px;
+            border: none;
+            background: transparent;
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 800;
         }
 
-        .lang-btn.active { background: var(--accent-purple); color: #fff; box-shadow: 0 0 15px rgba(138, 43, 226, 0.5); }
+        .lang-btn.active {
+            background: var(--accent-purple);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+        }
 
-        .header { padding: 70px 20px 30px; text-align: center; }
+        .header {
+            padding: 70px 20px 30px;
+            text-align: center;
+        }
 
-        .logo-container { width: 130px; height: 130px; margin: 0 auto 15px; position: relative; }
+        .logo-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 15px;
+            position: relative;
+        }
 
         .logo-img { 
-            width: 100%; height: 100%; object-fit: contain;
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain;
             filter: drop-shadow(0 0 20px var(--accent-pink));
             animation: logoPulse 4s infinite ease-in-out;
         }
@@ -66,25 +88,38 @@
         }
 
         h1 {
-            font-size: 3.2rem; font-weight: 900; margin: 0;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin: 0;
             background: linear-gradient(to bottom, #fff 50%, var(--accent-pink));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             letter-spacing: -2px;
         }
 
-        .nav-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 50px; }
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+        }
 
         .tab-btn {
-            background: var(--glass-bg); border: 1px solid var(--glass-border);
-            padding: 12px 28px; border-radius: 100px;
-            color: rgba(255,255,255,0.7); cursor: pointer;
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 12px 28px;
+            border-radius: 100px;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            backdrop-filter: blur(20px);
             font-weight: 700;
         }
 
-        .tab-btn.active { 
-            background: #fff; color: #000; transform: translateY(-2px); 
-            box-shadow: 0 10px 20px rgba(255,255,255,0.1); 
+        .tab-btn.active {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.1);
         }
 
         .container { max-width: 1140px; margin: 0 auto; padding: 0 20px 100px; flex: 1; width: 100%; }
@@ -108,11 +143,10 @@
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-ios);
             overflow: hidden;
-            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(25px);
             display: flex;
             flex-direction: column;
             position: relative;
-            height: 100%; /* Все карточки в ряду будут одной высоты */
         }
 
         .card:hover {
@@ -122,69 +156,101 @@
         }
 
         .card-label {
-            position: absolute; top: 15px; left: 15px;
-            background: #ff004c; color: #fff; padding: 5px 12px;
-            border-radius: 8px; font-size: 11px; font-weight: 900;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #ff004c;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 900;
             text-transform: uppercase;
             box-shadow: 0 5px 15px rgba(255,0,76,0.4);
             z-index: 2;
         }
 
-        .card-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--glass-border); }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--glass-border);
+        }
 
         .card-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
 
         .card-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 25px; line-height: 1.2; }
 
-        .btn-group { 
-            display: flex; flex-direction: column; gap: 12px; 
-            margin-top: auto; /* ПРИЖИМАЕТ КНОПКИ К НИЗУ КАРТОЧКИ */
-        }
+        .btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
 
         .btn {
-            padding: 15px; border-radius: 18px; text-decoration: none;
-            font-size: 1rem; font-weight: 800; text-align: center;
-            border: none; cursor: pointer;
+            padding: 15px;
+            border-radius: 18px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 800;
+            text-align: center;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-download { 
-            background: #fff; color: #000; 
+            background: #fff; 
+            color: #000; 
             box-shadow: 0 4px 15px rgba(255,255,255,0.2);
         }
         .btn-download:hover { background: var(--accent-pink); color: #fff; box-shadow: 0 0 25px var(--accent-pink); }
 
         .btn-secondary { 
-            background: rgba(255,255,255,0.05); color: #fff; 
+            background: rgba(255,255,255,0.05); 
+            color: #fff; 
             border: 1px solid var(--glass-border);
         }
         .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
         footer {
-            padding: 60px 20px; text-align: center;
-            background: rgba(0,0,0,0.4); backdrop-filter: blur(20px);
+            padding: 60px 20px;
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(20px);
             border-top: 1px solid var(--glass-border);
         }
 
         .tg-btn {
-            display: inline-flex; align-items: center; gap: 12px;
-            background: linear-gradient(45deg, #0088cc, #00a2ff); color: white;
-            padding: 18px 35px; border-radius: 100px; text-decoration: none;
-            font-weight: 800; margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(45deg, #0088cc, #00a2ff);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            margin-bottom: 20px;
             box-shadow: 0 10px 30px rgba(0, 136, 204, 0.4);
         }
 
         .tg-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 136, 204, 0.6); }
 
         #modal {
-            display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.85); backdrop-filter: blur(20px);
-            z-index: 2000; justify-content: center; align-items: center; padding: 20px;
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            justify-content: center; align-items: center;
+            padding: 20px;
         }
 
         .modal-content {
-            background: #110c2b; padding: 40px; border-radius: 30px;
-            width: 100%; max-width: 550px; border: 1px solid var(--glass-border);
-            position: relative; box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+            background: #110c2b;
+            padding: 40px;
+            border-radius: 30px;
+            width: 100%; max-width: 550px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.8);
         }
     </style>
 </head>
@@ -221,7 +287,9 @@
     </div>
 
     <footer>
-        <a href="https://t.me/nierosyjski" target="_blank" class="tg-btn" id="tg-link">Telegram канал Автора</a>
+        <a href="https://t.me/nierosyjski" target="_blank" class="tg-btn" id="tg-link">
+            Telegram канал Автора
+        </a>
         <div id="footer-author" style="opacity: 0.4; font-size: 12px; font-weight: 600;">
             Автор: Petta Rain | NieTracker &copy; 2026
         </div>
@@ -244,15 +312,23 @@
             } catch (e) { console.error("Error", e); }
         }
 
+        function render() {
+            // Теперь передаем одинаковый тип отрисовки для всех, чтобы условия кнопок были общими
+            document.getElementById('games').innerHTML = globalData.games.map(item => createCard(item)).join('');
+            document.getElementById('other').innerHTML = globalData.other.map(item => createCard(item)).join('');
+        }
+
         function createCard(item) {
             let labelHtml = item.label ? `<div class="card-label">${item.label}</div>` : '';
             let btns = `<a href="${item.downloadUrl}" target="_blank" class="btn btn-download">${uiText[currentLang].download}</a>`;
             
+            // ПРОВЕРКА ДЛЯ ВСЕХ КАТЕГОРИЙ: если есть текст инструкции, рисуем кнопку
             if (item.instruction && item.instruction.trim() !== "") {
                 const safeText = item.instruction.replace(/'/g, "&apos;").replace(/"/g, "&quot;");
                 btns += `<button class="btn btn-secondary" onclick="showModal('${safeText}')">${uiText[currentLang].instruct}</button>`;
             }
             
+            // ПРОВЕРКА ДЛЯ ВСЕХ КАТЕГОРИЙ: если есть ссылка getUrl, рисуем кнопку "Получить"
             if (item.getUrl && item.getUrl.trim() !== "") {
                 btns += `<a href="${item.getUrl}" target="_blank" class="btn btn-secondary">${uiText[currentLang].get}</a>`;
             }
@@ -269,13 +345,9 @@
             `;
         }
 
-        function render() {
-            document.getElementById('games').innerHTML = globalData.games.map(createCard).join('');
-            document.getElementById('other').innerHTML = globalData.other.map(createCard).join('');
-        }
-
         function switchTab(tabId, event) {
-            document.querySelectorAll('.grid, .tab-btn').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.grid').forEach(g => g.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             event.target.classList.add('active');
         }
@@ -284,11 +356,13 @@
             currentLang = lang;
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
+            
             document.getElementById('tab-games').innerText = uiText[lang].games;
             document.getElementById('tab-other').innerText = uiText[lang].other;
             document.getElementById('modal-title').innerText = uiText[lang].modal;
             document.getElementById('tg-link').innerText = uiText[lang].tg;
             document.getElementById('footer-author').innerHTML = `${uiText[lang].author}: Petta Rain | NieTracker &copy; 2026`;
+            
             render();
         }
 
@@ -303,3 +377,4 @@
     </script>
 </body>
 </html>
+
