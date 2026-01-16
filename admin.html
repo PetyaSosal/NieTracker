@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>NieTracker | Admin Panel</title>
+    <style>
+        body { font-family: sans-serif; background: #060314; color: white; padding: 40px; }
+        .form-group { margin-bottom: 15px; }
+        input, textarea { width: 100%; padding: 10px; background: #110c2b; border: 1px solid #333; color: white; border-radius: 8px; }
+        button { padding: 15px 30px; background: #8a2be2; color: white; border: none; border-radius: 8px; cursor: pointer; }
+        .status { margin-top: 20px; padding: 10px; border-radius: 5px; display: none; }
+    </style>
+</head>
+<body>
+    <h2>Управление данными NieTracker</h2>
+    
+    <div id="auth-section">
+        <input type="password" id="gh-token" placeholder="Введите GitHub Token">
+        <p style="font-size: 12px; color: #666;">Токен не сохраняется на сервере, используется только для запроса.</p>
+    </div>
+
+    <hr style="margin: 30px 0; opacity: 0.1;">
+
+    <div class="form-group">
+        <label>Категория:</label>
+        <select id="category" style="width:100%; padding:10px;">
+            <option value="games">Игры</option>
+            <option value="other">Другое</option>
+        </select>
+    </div>
+    <div class="form-group"><input type="text" id="title" placeholder="Название (Title)"></div>
+    <div class="form-group"><input type="text" id="image" placeholder="Ссылка на картинку"></div>
+    <div class="form-group"><input type="text" id="downloadUrl" placeholder="Ссылка на скачивание"></div>
+    <div class="form-group"><input type="text" id="label" placeholder="Ярлык (например: NEW или 1.2.0)"></div>
+    <div class="form-group"><textarea id="instruction" placeholder="Инструкция"></textarea></div>
+    
+    <button onclick="updateData()">Добавить и обновить на GitHub</button>
+    <div id="status" class="status"></div>
+
+    <script>
+        const OWNER = 'ТВОЙ_ЛОГИН_GITHUB';
+        const REPO = 'ИМЯ_РЕПОЗИТОРИЯ';
+        const FILE_PATH = 'data.json';
+
+        async function updateData() {
+            const token = document.getElementById('gh-token').value;
+            const statusDiv = document.getElementById('status');
+            
+            if (!token) { alert('Введите токен!'); return; }
+
+            statusDiv.style.display = 'block';
+            statusDiv.innerText = 'Связь с GitHub...';
+            statusDiv.style.background = '#333';
+
+            try {
+                // 1. Получаем текущий файл и его SHA (обязательно для обновления)
+                const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE_PATH}`, {
+                    headers: { 'Authorization': `token ${token}` }
+                });
+                const fileData = await res.json();
+                const sha = fileData.sha;
+                const currentContent = JSON.parse(atob(fileData.content));
+
+                // 2. Создаем новый объект
+                const newItem = {
+                    title: document.getElementById('title').value,
+                    image: document.getElementById('image').value,
+                    downloadUrl: document.getElementById('downloadUrl').value,
+                    label: document.getElementById('label').value,
+                    instruction: document.getElementById('instruction').value
+                };
+
+                const cat = document.getElementById('category').value;
+                currentContent[cat].push(newItem);
+
+                // 3. Отправляем обновленный файл назад
+                const updatedContentBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(currentContent, null, 2))));
+
+                const putRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE_PATH}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `Update data.json: added ${newItem.title}`,
+                        content: updatedContentBase64,
+                        sha: sha
+                    })
+                });
+
+                if (putRes.ok) {
+                    statusDiv.innerText = 'Успешно обновлено! Сайт обновится через пару минут.';
+                    statusDiv.style.background = '#28a745';
+                } else {
+                    throw new Error('Ошибка при сохранении');
+                }
+
+            } catch (err) {
+                statusDiv.innerText = 'Ошибка: ' + err.message;
+                statusDiv.style.background = '#dc3545';
+            }
+        }
+    </script>
+</body>
+</html>
