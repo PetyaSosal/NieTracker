@@ -73,10 +73,18 @@
       "downloadUrl": "https://www.dropbox.com/scl/fi/vyu7frmetz4k1wnb0rhx4/Release_x64.zip?rlkey=bq62ha30olzf2vofb13e557e6&st=dz9nulaq&dl=1",
       "instruction": "Как распакуете, в папке запустите от имени администратора register.cmd и после того, как он всё там сделает, перезагружаете компьютер и смотрим результат!",
       "getUrl": ""
+    },
+    {
+      "title": "Happ VPN",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/ee/10/33ee108e-1cf8-1ec0-dce8-77846175e4ff/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/1200x600wa.png",
+      "downloadUrl": "https://www.dropbox.com/scl/fi/75pthzj7u04889rncsxyr/setup-Happ.x64.exe?rlkey=kvxzw4gfyah5virctht77u28n&st=m3zf887t&dl=1",
+      "instruction": "Полезный VPN, файл добавлен в случае проблем с GitHub у россиян.",
+      "getUrl": ""
     }
   ]
 
 }
+
 
 
 
