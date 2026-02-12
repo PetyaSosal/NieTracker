@@ -3,309 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NieTracker | Premium Gaming</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <title>NieTracker | Experience Next</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0b0b12;
-            --card-bg: rgba(18, 18, 29, 0.7);
-            --accent-primary: #a855f7; /* Фиолетовый */
-            --accent-secondary: #ec4899; /* Розовый */
-            --text-main: #f8fafc;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --bg-dark: #030308;
+            --accent-primary: #8b5cf6;
+            --accent-secondary: #d946ef;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.07);
+            --mouse-x: 50%;
+            --mouse-y: 50%;
         }
 
-        * { box-sizing: border-box; transition: var(--transition-smooth); }
+        * { box-sizing: border-box; transition: all 0.5s cubic-bezier(0.15, 0, 0.5, 1); }
 
         body {
             margin: 0;
             background-color: var(--bg-dark);
-            color: var(--text-main);
+            color: #fff;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
         }
 
-        /* ЖИВОЙ ФОН */
-        .bg-glow {
+        /* УЛУЧШЕННЫЙ ЖИВОЙ ФОН */
+        .nebula-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, var(--bg-dark) 100%);
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(217, 70, 239, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at center, #0a0a1a 0%, var(--bg-dark) 100%);
+            animation: nebulaMove 20s infinite alternate ease-in-out;
         }
 
-        .bg-glow::before, .bg-glow::after {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            animation: float 15s infinite alternate ease-in-out;
+        @keyframes nebulaMove {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1) rotate(2deg); }
         }
 
-        .bg-glow::before { background: var(--accent-primary); top: -10%; left: -10%; }
-        .bg-glow::after { background: var(--accent-secondary); bottom: -10%; right: -10%; animation-delay: -5s; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(100px, 50px) scale(1.2); }
-        }
-
-        /* HEADER */
-        .header {
-            padding: 100px 20px 40px;
-            text-align: center;
-        }
+        /* ШАПКА И ЛОГО */
+        .header { padding: 100px 20px 50px; text-align: center; }
 
         .logo-container {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 25px;
+            width: 130px; height: 130px; margin: 0 auto 30px;
             position: relative;
         }
 
         .logo-img {
-            width: 100%; height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.4));
-            animation: logoScale 3s infinite ease-in-out;
+            width: 100%; height: 100%; object-fit: contain;
+            filter: drop-shadow(0 0 30px var(--accent-primary));
+            animation: float 4s infinite ease-in-out;
         }
 
-        @keyframes logoScale {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.3)); }
-            50% { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.5)); }
-        }
-
-        h1 {
-            font-size: 3.5rem;
+        /* ИНТЕРАКТИВНЫЙ ЗАГОЛОВОК */
+        .main-title {
+            font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 900;
             margin: 0;
-            letter-spacing: -2px;
-            background: linear-gradient(to right, #fff, #a855f7);
+            letter-spacing: -4px;
+            text-transform: uppercase;
+            position: relative;
+            background: radial-gradient(
+                circle at var(--mouse-x) var(--mouse-y), 
+                #fff 0%, 
+                var(--accent-primary) 30%, 
+                var(--accent-secondary) 60%
+            );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
         }
 
-        /* TABS */
+        /* НАВИГАЦИЯ */
         .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 60px;
+            display: flex; justify-content: center; gap: 12px; margin-bottom: 60px;
         }
 
         .tab-btn {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            padding: 12px 35px;
-            border-radius: 14px;
-            color: #94a3b8;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 14px 35px; border-radius: 100px;
+            color: rgba(255,255,255,0.5); cursor: pointer;
+            font-weight: 700; backdrop-filter: blur(10px);
         }
 
-        .tab-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.2);
-        }
+        .tab-btn:hover { color: #fff; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.06); }
 
         .tab-btn.active {
-            background: #fff;
-            color: #000;
-            border-color: #fff;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+            background: #fff; color: #000; transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
         }
 
-        /* GRID & CARDS */
-        .container { max-width: 1240px; margin: 0 auto; padding: 0 25px 100px; width: 100%; flex: 1; }
+        /* КАРТОЧКИ */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px 120px; width: 100%; flex: 1; }
+        .grid { display: none; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .grid.active { display: grid; animation: slideUp 0.6s ease; }
 
-        .grid {
-            display: none;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 25px;
-        }
-
-        .grid.active { display: grid; animation: fadeInUp 0.8s ease; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            overflow: hidden;
-            position: relative;
-            backdrop-filter: blur(10px);
-            display: flex;
-            flex-direction: column;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: 30px; overflow: hidden; backdrop-filter: blur(20px);
+            display: flex; flex-direction: column; position: relative;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(168, 85, 247, 0.1);
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.7);
         }
 
-        .card-image-wrap {
-            width: 100%;
-            height: 210px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .card-img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-        }
-
+        .card-img { width: 100%; height: 200px; object-fit: cover; transition: 0.8s; }
         .card:hover .card-img { transform: scale(1.1); }
 
-        .card-label {
-            position: absolute;
-            top: 15px; left: 15px;
-            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
-            padding: 5px 15px;
-            border-radius: 10px;
-            font-size: 11px;
-            font-weight: 800;
-            z-index: 2;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
+        .card-content { padding: 30px; flex: 1; display: flex; flex-direction: column; }
+        .card-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 25px; }
 
-        .card-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+        /* КНОПКИ */
+        .btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
+        .btn { padding: 16px; border-radius: 18px; text-decoration: none; font-weight: 800; text-align: center; border: none; cursor: pointer; }
+        
+        .btn-download { background: #fff; color: #000; position: relative; overflow: hidden; }
+        .btn-download:hover { background: var(--accent-primary); color: #fff; box-shadow: 0 0 30px var(--accent-primary); }
 
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: #fff;
-        }
+        .btn-secondary { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--glass-border); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 
-        /* BUTTONS */
-        .btn-group { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
-
-        .btn {
-            padding: 14px;
-            border-radius: 14px;
-            text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            font-size: 0.95rem;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-download {
-            background: #fff;
-            color: #000;
-        }
-
-        /* ЭФФЕКТ БЛИКА НА КНОПКЕ */
-        .btn-download::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -60%;
-            width: 20%; height: 200%;
-            background: rgba(255, 255, 255, 0.8);
-            transform: rotate(30deg);
-            transition: 0s;
-        }
-
-        .btn-download:hover::after {
-            left: 120%;
-            transition: 0.7s;
-        }
-
-        .btn-download:hover {
-            background: var(--accent-primary);
-            color: #fff;
-            box-shadow: 0 0 25px var(--accent-primary);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #fff;
-        }
-
-        /* MODAL */
-        #modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            justify-content: center; align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: #161625;
-            padding: 40px;
-            border-radius: 30px;
-            max-width: 500px; width: 100%;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-        }
-
-        /* FOOTER */
+        /* ФУТЕР И ТЕЛЕГРАММ */
         footer {
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            background: rgba(0, 0, 0, 0.2);
+            padding: 80px 20px; text-align: center;
+            background: linear-gradient(to top, rgba(13, 13, 26, 0.9), transparent);
+            backdrop-filter: blur(10px); border-top: 1px solid var(--glass-border);
         }
+
+        .tg-container { position: relative; display: inline-block; }
 
         .tg-btn {
-            display: inline-flex;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, #0088cc, #00a2ff);
-            border-radius: 50px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 800;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3);
+            display: inline-flex; align-items: center; padding: 20px 45px;
+            background: #fff; color: #000; border-radius: 100px;
+            text-decoration: none; font-weight: 900; font-size: 1.1rem;
+            position: relative; z-index: 2;
         }
 
-        .footer-info { opacity: 0.4; font-size: 13px; font-weight: 500; }
+        .tg-glow {
+            position: absolute; inset: 0; background: #0088cc;
+            filter: blur(20px); border-radius: 100px; opacity: 0;
+            transition: 0.5s; z-index: 1;
+        }
+
+        .tg-container:hover .tg-glow { opacity: 0.7; transform: scale(1.2); }
+        .tg-container:hover .tg-btn { background: #0088cc; color: #fff; transform: translateY(-5px); }
+
+        .footer-info { margin-top: 30px; opacity: 0.3; font-size: 12px; letter-spacing: 2px; }
+
+        /* МОДАЛКА */
+        #modal {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(20px); z-index: 2000; justify-content: center; align-items: center; padding: 20px;
+        }
+        .modal-content {
+            background: #0d0d1a; padding: 50px; border-radius: 40px;
+            max-width: 500px; width: 100%; border: 1px solid var(--glass-border); text-align: center;
+        }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
+    <div class="nebula-bg"></div>
 
     <header class="header">
         <div class="logo-container">
-            <img src="img/logo2.png" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/150/1e1e2e/fff?text=NT'">
+            <img src="img/logo2.png" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/150/030308/fff?text=NT'">
         </div>
-        <h1>NIETRACKER</h1>
+        <h1 class="main-title" id="title">NIETRACKER</h1>
     </header>
 
     <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab('games', event)">Игры</button>
-        <button class="tab-btn" onclick="switchTab('other', event)">Другое</button>
+        <button class="tab-btn active" onclick="switchTab('games', event)">ИГРЫ</button>
+        <button class="tab-btn" onclick="switchTab('other', event)">ДРУГОЕ</button>
     </div>
 
     <div class="container">
@@ -315,14 +197,19 @@
 
     <div id="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <h3 style="margin: 0 0 20px; font-size: 1.8rem;">Инструкция</h3>
-            <p id="modal-text" style="line-height: 1.6; color: #94a3b8; margin-bottom: 30px; white-space: pre-line;"></p>
-            <button class="btn btn-download" style="width: 100%" onclick="closeModal()">ОТЛИЧНО</button>
+            <h2 style="margin-top:0">ИНСТРУКЦИЯ</h2>
+            <p id="modal-text" style="color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 30px;"></p>
+            <button class="btn btn-download" style="width: 100%" onclick="closeModal()">ПОНЯТНО</button>
         </div>
     </div>
 
     <footer>
-        <a href="https://t.me/nierosyjski" target="_blank" class="tg-btn">TELEGRAM КАНАЛ</a>
+        <div class="tg-container">
+            <div class="tg-glow"></div>
+            <a href="https://t.me/nierosyjski" target="_blank" class="tg-btn">
+                TELEGRAM КАНАЛ
+            </a>
+        </div>
         <div class="footer-info">
             PETTA RAIN | NIETRACKER &copy; 2026 
             <a href="admin.html" style="text-decoration: none; color: inherit; opacity: 0.5;">.</a>
@@ -330,6 +217,14 @@
     </footer>
 
     <script>
+        // СЛЕДИМ ЗА МЫШКОЙ ДЛЯ ЭФФЕКТА ТЕКСТА
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+            document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+        });
+
         let globalData = { games: [], other: [] };
 
         async function loadData() {
@@ -341,12 +236,12 @@
         }
 
         function createCard(item) {
-            let label = item.label ? `<div class="card-label">${item.label}</div>` : '';
+            let label = item.label ? `<div style="position:absolute; top:20px; left:20px; background:var(--accent-secondary); padding:5px 12px; border-radius:10px; font-size:10px; font-weight:900; z-index:2;">${item.label}</div>` : '';
             let btns = `<a href="${item.downloadUrl}" target="_blank" class="btn btn-download">СКАЧАТЬ</a>`;
             
             if (item.instruction) {
-                const text = item.instruction.replace(/'/g, "&apos;").replace(/"/g, "&quot;");
-                btns += `<button class="btn btn-secondary" onclick="showModal('${text}')">ИНСТРУКЦИЯ</button>`;
+                const txt = item.instruction.replace(/'/g, "&apos;").replace(/"/g, "&quot;");
+                btns += `<button class="btn btn-secondary" onclick="showModal('${txt}')">ИНСТРУКЦИЯ</button>`;
             }
             if (item.getUrl) {
                 btns += `<a href="${item.getUrl}" target="_blank" class="btn btn-secondary">ПОЛУЧИТЬ</a>`;
@@ -355,9 +250,7 @@
             return `
                 <div class="card">
                     ${label}
-                    <div class="card-image-wrap">
-                        <img src="${item.image}" class="card-img" onerror="this.src='https://via.placeholder.com/400x250/1e1e2e/ffffff?text=No+Image'">
-                    </div>
+                    <img src="${item.image}" class="card-img" onerror="this.src='https://via.placeholder.com/400x250/0d0d1a/ffffff?text=NieTracker'">
                     <div class="card-content">
                         <div class="card-title">${item.title}</div>
                         <div class="btn-group">${btns}</div>
@@ -371,10 +264,10 @@
             document.getElementById('other').innerHTML = globalData.other.map(createCard).join('');
         }
 
-        function switchTab(tabId, event) {
+        function switchTab(id, e) {
             document.querySelectorAll('.grid, .tab-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            document.getElementById(id).classList.add('active');
+            e.currentTarget.classList.add('active');
         }
 
         function showModal(txt) {
