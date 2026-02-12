@@ -3,300 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NieTracker | Gaming Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>NieTracker | Premium Gaming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #060314;
-            --accent-purple: #8a2be2;
-            --accent-pink: #bf00ff;
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --radius-ios: 28px;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-dark: #0b0b12;
+            --card-bg: rgba(18, 18, 29, 0.7);
+            --accent-primary: #a855f7; /* Фиолетовый */
+            --accent-secondary: #ec4899; /* Розовый */
+            --text-main: #f8fafc;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        * { box-sizing: border-box; transition: var(--transition); }
+        * { box-sizing: border-box; transition: var(--transition-smooth); }
 
         body {
             margin: 0;
-            background-color: var(--bg-main);
-            color: #fff;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            overflow-x: hidden;
-            /* ФИКСИРОВАННЫЙ ФОН ДЛЯ ИДЕАЛЬНОГО СТЕКЛА */
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(138, 43, 226, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(191, 0, 255, 0.15) 0%, transparent 40%),
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            background-attachment: fixed;
         }
 
-        .header {
-            padding: 80px 20px 40px;
-            text-align: center;
-            position: relative;
+        /* ЖИВОЙ ФОН */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, var(--bg-dark) 100%);
         }
 
-        /* АНИМИРОВАННОЕ ОСВЕЩЕНИЕ ЛОГОТИПА */
-        .logo-container {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-container::before {
+        .bg-glow::before, .bg-glow::after {
             content: '';
             position: absolute;
-            inset: -20px;
-            background: var(--accent-purple);
-            filter: blur(50px);
-            opacity: 0.3;
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
-            animation: glowPulse 6s infinite ease-in-out;
+            filter: blur(120px);
+            opacity: 0.15;
+            animation: float 15s infinite alternate ease-in-out;
         }
 
-        .logo-img { 
-            width: 100%; 
-            height: 100%; 
+        .bg-glow::before { background: var(--accent-primary); top: -10%; left: -10%; }
+        .bg-glow::after { background: var(--accent-secondary); bottom: -10%; right: -10%; animation-delay: -5s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 50px) scale(1.2); }
+        }
+
+        /* HEADER */
+        .header {
+            padding: 100px 20px 40px;
+            text-align: center;
+        }
+
+        .logo-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 25px;
+            position: relative;
+        }
+
+        .logo-img {
+            width: 100%; height: 100%;
             object-fit: contain;
-            filter: drop-shadow(0 0 25px rgba(191, 0, 255, 0.5));
-            animation: logoFloat 4s infinite ease-in-out;
+            filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.4));
+            animation: logoScale 3s infinite ease-in-out;
         }
 
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.2; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-10px) scale(1.02); }
+        @keyframes logoScale {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.3)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.5)); }
         }
 
         h1 {
             font-size: 3.5rem;
             font-weight: 900;
             margin: 0;
-            background: linear-gradient(180deg, #fff 40%, var(--accent-pink));
+            letter-spacing: -2px;
+            background: linear-gradient(to right, #fff, #a855f7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -3px;
-            text-transform: uppercase;
         }
 
-        /* НАВИГАЦИЯ */
+        /* TABS */
         .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             margin-bottom: 60px;
         }
 
         .tab-btn {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 14px 32px;
-            border-radius: 100px;
-            color: rgba(255,255,255,0.6);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 12px 35px;
+            border-radius: 14px;
+            color: #94a3b8;
             cursor: pointer;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
             color: #fff;
-            border-color: rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.08);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .tab-btn.active {
             background: #fff;
             color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.3);
+            border-color: #fff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 100px; flex: 1; width: 100%; }
-        
+        /* GRID & CARDS */
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 25px 100px; width: 100%; flex: 1; }
+
         .grid {
             display: none;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-            animation: fadeIn 0.6s ease-out;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
         }
 
-        .grid.active { display: grid; }
+        .grid.active { display: grid; animation: fadeInUp 0.8s ease; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* КАРТОЧКИ */
         .card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-ios);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
             overflow: hidden;
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            position: relative;
+            backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
-            position: relative;
-            height: 100%;
         }
 
         .card:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: rgba(255,255,255,0.25);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(168, 85, 247, 0.1);
         }
 
-        .card-label {
-            position: absolute;
-            top: 20px; left: 20px;
-            background: var(--accent-pink);
-            color: #fff;
-            padding: 6px 14px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 2;
-            box-shadow: 0 4px 15px rgba(191, 0, 255, 0.4);
+        .card-image-wrap {
+            width: 100%;
+            height: 210px;
+            overflow: hidden;
+            position: relative;
         }
 
         .card-img {
-            width: 100%;
-            height: 220px;
+            width: 100%; height: 100%;
             object-fit: cover;
-            border-bottom: 1px solid var(--glass-border);
         }
 
-        .card-content { padding: 30px; flex: 1; display: flex; flex-direction: column; }
+        .card:hover .card-img { transform: scale(1.1); }
 
-        .card-title { 
-            font-size: 1.5rem; 
-            font-weight: 800; 
-            margin-bottom: 25px; 
-            line-height: 1.1; 
-            letter-spacing: -0.5px;
+        .card-label {
+            position: absolute;
+            top: 15px; left: 15px;
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 800;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
+        .card-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        /* BUTTONS */
+        .btn-group { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
 
         .btn {
-            padding: 16px;
-            border-radius: 20px;
+            padding: 14px;
+            border-radius: 14px;
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 800;
+            font-weight: 700;
             text-align: center;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
             border: none;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .btn-download { 
-            background: #fff; 
-            color: #000; 
-        }
-        .btn-download:hover { 
-            background: var(--accent-pink); 
-            color: #fff; 
-            box-shadow: 0 0 30px var(--accent-pink);
-            transform: scale(1.02);
+        .btn-download {
+            background: #fff;
+            color: #000;
         }
 
-        .btn-secondary { 
-            background: rgba(255,255,255,0.06); 
-            color: #fff; 
-            border: 1px solid var(--glass-border);
+        /* ЭФФЕКТ БЛИКА НА КНОПКЕ */
+        .btn-download::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -60%;
+            width: 20%; height: 200%;
+            background: rgba(255, 255, 255, 0.8);
+            transform: rotate(30deg);
+            transition: 0s;
         }
-        .btn-secondary:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
 
-        /* МОДАЛКА */
+        .btn-download:hover::after {
+            left: 120%;
+            transition: 0.7s;
+        }
+
+        .btn-download:hover {
+            background: var(--accent-primary);
+            color: #fff;
+            box-shadow: 0 0 25px var(--accent-primary);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+        }
+
+        /* MODAL */
         #modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            z-index: 2000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
             justify-content: center; align-items: center;
             padding: 20px;
         }
 
         .modal-content {
-            background: #0b071a;
-            padding: 45px;
-            border-radius: 35px;
-            width: 100%; max-width: 500px;
-            border: 1px solid var(--glass-border);
+            background: #161625;
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 500px; width: 100%;
+            border: 1px solid var(--border-color);
             text-align: center;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
 
-        /* ФУТЕР */
+        /* FOOTER */
         footer {
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
-            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            border-top: 1px solid var(--border-color);
+            background: rgba(0, 0, 0, 0.2);
         }
 
         .tg-btn {
             display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: #fff;
-            color: #000;
-            padding: 18px 40px;
-            border-radius: 100px;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #0088cc, #00a2ff);
+            border-radius: 50px;
+            color: #fff;
             text-decoration: none;
             font-weight: 800;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3);
         }
 
-        .tg-btn:hover { 
-            background: #0088cc; 
-            color: #fff; 
-            transform: translateY(-5px); 
-            box-shadow: 0 20px 40px rgba(0, 136, 204, 0.3);
-        }
-
-        .footer-info {
-            opacity: 0.3;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
+        .footer-info { opacity: 0.4; font-size: 13px; font-weight: 500; }
     </style>
 </head>
 <body>
 
+    <div class="bg-glow"></div>
+
     <header class="header">
         <div class="logo-container">
-            <img src="img/logo2.png" alt="NieTracker" class="logo-img" onerror="this.src='https://via.placeholder.com/150/060314/fff?text=NT'">
+            <img src="img/logo2.png" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/150/1e1e2e/fff?text=NT'">
         </div>
         <h1>NIETRACKER</h1>
     </header>
 
     <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab('games', event)">ИГРЫ</button>
-        <button class="tab-btn" onclick="switchTab('other', event)">ДРУГОЕ</button>
+        <button class="tab-btn active" onclick="switchTab('games', event)">Игры</button>
+        <button class="tab-btn" onclick="switchTab('other', event)">Другое</button>
     </div>
 
     <div class="container">
@@ -306,18 +315,16 @@
 
     <div id="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <h3 style="margin: 0 0 20px; font-size: 1.8rem; letter-spacing: -1px;">ИНСТРУКЦИЯ</h3>
-            <p id="modal-text" style="line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 35px; white-space: pre-line;"></p>
-            <button class="btn btn-download" style="width: 100%" onclick="closeModal()">ПОНЯТНО</button>
+            <h3 style="margin: 0 0 20px; font-size: 1.8rem;">Инструкция</h3>
+            <p id="modal-text" style="line-height: 1.6; color: #94a3b8; margin-bottom: 30px; white-space: pre-line;"></p>
+            <button class="btn btn-download" style="width: 100%" onclick="closeModal()">ОТЛИЧНО</button>
         </div>
     </div>
 
     <footer>
-        <a href="https://t.me/nierosyjski" target="_blank" class="tg-btn">
-            TELEGRAM КАНАЛ
-        </a>
+        <a href="https://t.me/nierosyjski" target="_blank" class="tg-btn">TELEGRAM КАНАЛ</a>
         <div class="footer-info">
-            PETTA RAIN | NIETRACKER &copy; 2026
+            PETTA RAIN | NIETRACKER &copy; 2026 
             <a href="admin.html" style="text-decoration: none; color: inherit; opacity: 0.5;">.</a>
         </div>
     </footer>
@@ -330,26 +337,27 @@
                 const response = await fetch('data.json');
                 globalData = await response.json();
                 render();
-            } catch (e) { console.error("Ошибка загрузки данных", e); }
+            } catch (e) { console.error("Data error", e); }
         }
 
         function createCard(item) {
-            let labelHtml = item.label ? `<div class="card-label">${item.label}</div>` : '';
+            let label = item.label ? `<div class="card-label">${item.label}</div>` : '';
             let btns = `<a href="${item.downloadUrl}" target="_blank" class="btn btn-download">СКАЧАТЬ</a>`;
             
-            if (item.instruction && item.instruction.trim() !== "") {
-                const safeText = item.instruction.replace(/'/g, "&apos;").replace(/"/g, "&quot;");
-                btns += `<button class="btn btn-secondary" onclick="showModal('${safeText}')">ИНСТРУКЦИЯ</button>`;
+            if (item.instruction) {
+                const text = item.instruction.replace(/'/g, "&apos;").replace(/"/g, "&quot;");
+                btns += `<button class="btn btn-secondary" onclick="showModal('${text}')">ИНСТРУКЦИЯ</button>`;
             }
-            
-            if (item.getUrl && item.getUrl.trim() !== "") {
+            if (item.getUrl) {
                 btns += `<a href="${item.getUrl}" target="_blank" class="btn btn-secondary">ПОЛУЧИТЬ</a>`;
             }
 
             return `
                 <div class="card">
-                    ${labelHtml}
-                    <img src="${item.image}" class="card-img" onerror="this.src='https://via.placeholder.com/400x250/060314/ffffff?text=NieTracker'">
+                    ${label}
+                    <div class="card-image-wrap">
+                        <img src="${item.image}" class="card-img" onerror="this.src='https://via.placeholder.com/400x250/1e1e2e/ffffff?text=No+Image'">
+                    </div>
                     <div class="card-content">
                         <div class="card-title">${item.title}</div>
                         <div class="btn-group">${btns}</div>
