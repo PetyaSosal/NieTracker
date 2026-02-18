@@ -100,14 +100,14 @@
     {
       "title": "NekoBox для пк",
       "image": "https://static21.tgcnt.ru/posts/_0/cf/cf1c4685502b4540ad7cffb117592a06.jpg",
-      "downloadUrl": "https://github.com/qr243vbi/nekobox/releases?ysclid=mlrp3756ux446470785",
-      "instruction": "Скачайте на официальном сайте GitHub версию программы. Как по мне, самый наилучший VPN!",
+      "getUrl": "https://github.com/qr243vbi/nekobox/releases?ysclid=mlrp3756ux446470785",
+      "instruction": "Скачайте на официальном сайте GitHub версию программы. Как по мне, самый наилучший VPN!"
     },
     {
       "title": "NekoBox для андроид",
       "image": "https://en.nekoboxforandroid.org/wp-content/uploads/2024/01/1706144483-nekoboxforandroid.jpg",
-      "downloadUrl": "https://github.com/Matsuridayo/NekoBoxForAndroid/releases?ysclid=mlrruc4ovv527315736",
-      "instruction": "Скачайте на официальном сайте GitHub версию программы для андроид. Как по мне, самый наилучший VPN!",
+      "getUrl": "https://github.com/Matsuridayo/NekoBoxForAndroid/releases?ysclid=mlrruc4ovv527315736",
+      "instruction": "Скачайте на официальном сайте GitHub версию программы для андроид. Как по мне, самый наилучший VPN!"
     },
     {
       "title": "After Effects",
@@ -140,6 +140,7 @@
   ]
 
 }
+
 
 
 
