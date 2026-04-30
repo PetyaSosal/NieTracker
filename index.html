@@ -6,6 +6,7 @@
     <title>NieTracker | Experience Next</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #0c050a;
@@ -17,12 +18,12 @@
         }
 
         :root.dark-theme {
-            --bg-dark: #0a0a0a;
-            --accent-primary: #2a2a2a;
-            --accent-secondary: #4a4a4a;
-            --accent-glow: #1a1a1a;
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.06);
+            --bg-dark: #000000;
+            --accent-primary: #ffffff;
+            --accent-secondary: #e0e0e0;
+            --accent-glow: #ffffff;
+            --glass: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.08);
         }
 
         * {
@@ -56,48 +57,48 @@
 
         :root.dark-theme .nebula-bg {
             background: 
-                radial-gradient(circle at 25% 25%, rgba(200, 100, 50, 0.25) 0%, transparent 55%),
-                radial-gradient(circle at 75% 75%, rgba(150, 70, 40, 0.2) 0%, transparent 60%),
-                radial-gradient(circle at 50% 40%, rgba(100, 50, 30, 0.15) 0%, transparent 70%),
-                linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            animation: smokePlume 35s infinite alternate ease-in-out;
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 55%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+                radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.03) 0%, transparent 70%),
+                linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+            animation: darkPulse 40s infinite alternate ease-in-out;
         }
 
-        @keyframes smokePlume {
+        @keyframes darkPulse {
             0% {
                 background: 
-                    radial-gradient(circle at 25% 25%, rgba(200, 100, 50, 0.25) 0%, transparent 55%),
-                    radial-gradient(circle at 75% 75%, rgba(150, 70, 40, 0.2) 0%, transparent 60%),
-                    radial-gradient(circle at 50% 40%, rgba(100, 50, 30, 0.15) 0%, transparent 70%),
-                    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+                    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 55%),
+                    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+                    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.03) 0%, transparent 70%),
+                    linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
             }
             25% {
                 background: 
-                    radial-gradient(circle at 35% 20%, rgba(220, 120, 60, 0.28) 0%, transparent 55%),
-                    radial-gradient(circle at 65% 80%, rgba(160, 80, 45, 0.22) 0%, transparent 60%),
-                    radial-gradient(circle at 50% 50%, rgba(120, 60, 35, 0.18) 0%, transparent 70%),
-                    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+                    radial-gradient(circle at 35% 20%, rgba(255, 255, 255, 0.12) 0%, transparent 55%),
+                    radial-gradient(circle at 65% 80%, rgba(255, 255, 255, 0.07) 0%, transparent 60%),
+                    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%),
+                    linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
             }
             50% {
                 background: 
-                    radial-gradient(circle at 50% 30%, rgba(200, 80, 40, 0.22) 0%, transparent 55%),
-                    radial-gradient(circle at 40% 70%, rgba(150, 60, 30, 0.18) 0%, transparent 60%),
-                    radial-gradient(circle at 60% 50%, rgba(100, 40, 20, 0.12) 0%, transparent 70%),
-                    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+                    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 55%),
+                    radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+                    radial-gradient(circle at 60% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 70%),
+                    linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
             }
             75% {
                 background: 
-                    radial-gradient(circle at 30% 35%, rgba(210, 100, 50, 0.26) 0%, transparent 55%),
-                    radial-gradient(circle at 70% 65%, rgba(160, 75, 40, 0.21) 0%, transparent 60%),
-                    radial-gradient(circle at 50% 45%, rgba(110, 55, 30, 0.16) 0%, transparent 70%),
-                    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+                    radial-gradient(circle at 30% 35%, rgba(255, 255, 255, 0.11) 0%, transparent 55%),
+                    radial-gradient(circle at 70% 65%, rgba(255, 255, 255, 0.065) 0%, transparent 60%),
+                    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.045) 0%, transparent 70%),
+                    linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
             }
             100% {
                 background: 
-                    radial-gradient(circle at 25% 25%, rgba(200, 100, 50, 0.25) 0%, transparent 55%),
-                    radial-gradient(circle at 75% 75%, rgba(150, 70, 40, 0.2) 0%, transparent 60%),
-                    radial-gradient(circle at 50% 40%, rgba(100, 50, 30, 0.15) 0%, transparent 70%),
-                    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+                    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 55%),
+                    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+                    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.03) 0%, transparent 70%),
+                    linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
             }
         }
 
@@ -117,6 +118,11 @@
             opacity: 0.85;
         }
 
+        :root.dark-theme #particle-canvas {
+            mix-blend-mode: addition;
+            opacity: 0.95;
+        }
+
         .glow-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -129,7 +135,8 @@
 
         :root.dark-theme .glow-overlay {
             background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), 
-                        rgba(255, 255, 255, 0.12) 0%, rgba(0, 0, 0, 0.35) 35%, transparent 65%);
+                        rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.08) 15%, transparent 40%);
+            box-shadow: 0 0 80px rgba(255, 255, 255, 0.3);
         }
 
         .header {
@@ -157,7 +164,8 @@
         }
 
         :root.dark-theme .logo-img {
-            filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.9)) brightness(0.9);
+            filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.5)) brightness(1.1);
+            opacity: 0.95;
         }
 
         .main-title {
@@ -174,11 +182,14 @@
         }
 
         :root.dark-theme .main-title {
-            background: linear-gradient(90deg, #ffffff, #e8e8e8, #cccccc, #ffffff);
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            letter-spacing: 8px;
+            background: linear-gradient(90deg, #ffffff, #e0e0e0, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.8)) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.9));
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3));
         }
 
         @keyframes titleGradient {
@@ -206,8 +217,9 @@
         }
 
         :root.dark-theme .tab-btn {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-            color: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.8);
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         .tab-btn:hover {
@@ -217,8 +229,9 @@
         }
 
         :root.dark-theme .tab-btn:hover {
-            border-color: #666666;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+            border-color: #ffffff;
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+            color: #ffffff;
         }
 
         .tab-btn.active {
@@ -228,8 +241,10 @@
         }
 
         :root.dark-theme .tab-btn.active {
-            background: linear-gradient(90deg, #444444, #666666);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.1);
+            background: linear-gradient(90deg, #ffffff, #e0e0e0);
+            color: #000000;
+            box-shadow: 0 25px 50px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2);
+            font-weight: 900;
         }
 
         .container {
@@ -265,7 +280,7 @@
         }
 
         :root.dark-theme .card {
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 60px rgba(255, 255, 255, 0.08), inset 0 0 20px rgba(255, 255, 255, 0.02);
         }
 
         .card:hover {
@@ -275,8 +290,8 @@
         }
 
         :root.dark-theme .card:hover {
-            border-color: #555555;
-            box-shadow: 0 45px 100px rgba(0, 0, 0, 0.95), 0 0 30px rgba(255, 255, 255, 0.08);
+            border-color: #ffffff;
+            box-shadow: 0 45px 100px rgba(255, 255, 255, 0.15), 0 0 40px rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.03);
         }
 
         .card-img {
@@ -304,7 +319,8 @@
         }
 
         :root.dark-theme .card-title {
-            color: #e0e0e0;
+            color: #ffffff;
+            font-weight: 900;
         }
 
         .btn-group {
@@ -342,9 +358,10 @@
         }
 
         :root.dark-theme .card-label {
-            background: #555555;
-            color: #e0e0e0;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            font-weight: 900;
         }
 
         .btn-download {
@@ -353,9 +370,10 @@
         }
 
         :root.dark-theme .btn-download {
-            background: #e0e0e0;
-            color: #1a1a1a;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            font-weight: 900;
         }
 
         .btn-download:hover {
@@ -365,9 +383,9 @@
         }
 
         :root.dark-theme .btn-download:hover {
-            background: linear-gradient(90deg, #555555, #777777);
-            color: white;
-            box-shadow: 0 0 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.2);
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 60px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
         }
 
         .btn-secondary {
@@ -377,9 +395,9 @@
         }
 
         :root.dark-theme .btn-secondary {
-            background: rgba(255,255,255,0.05);
-            border-color: rgba(255,255,255,0.08);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
         .btn-secondary:hover {
@@ -388,9 +406,9 @@
         }
 
         :root.dark-theme .btn-secondary:hover {
-            background: rgba(255,255,255,0.12);
-            border-color: #666666;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+            background: rgba(255,255,255,0.15);
+            border-color: #ffffff;
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
         /* Модальное окно — исправленное и красивое */
@@ -407,7 +425,8 @@
         }
 
         :root.dark-theme #modal {
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(0, 0, 0, 0.99);
+            backdrop-filter: blur(40px);
         }
 
         .modal-content {
@@ -422,8 +441,14 @@
         }
 
         :root.dark-theme .modal-content {
-            background: rgba(20, 20, 20, 0.99);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(255, 255, 255, 0.05);
+            background: rgba(5, 5, 5, 0.99);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 30px 80px rgba(255, 255, 255, 0.15),
+                inset 0 0 50px rgba(255, 255, 255, 0.05),
+                0 0 40px rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 60px 50px;
         }
 
         .modal-content h2 {
@@ -433,11 +458,20 @@
         }
 
         :root.dark-theme .modal-content h2 {
-            color: #e0e0e0;
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 2.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
         }
 
         :root.dark-theme .modal-content p {
             color: #d0d0d0 !important;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
         }
 
         /* Футер */
@@ -450,8 +484,8 @@
         }
 
         :root.dark-theme footer {
-            background: linear-gradient(to top, rgba(10, 10, 10, 0.98), transparent);
-            border-top: 1px solid rgba(255,255,255,0.03);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.99), transparent);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .dev-profile {
@@ -468,7 +502,8 @@
         }
 
         :root.dark-theme .dev-profile {
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .dev-profile:hover {
@@ -478,8 +513,8 @@
         }
 
         :root.dark-theme .dev-profile:hover {
-            border-color: #555555;
-            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+            box-shadow: 0 25px 55px rgba(255, 255, 255, 0.25), 0 0 40px rgba(255, 255, 255, 0.2);
         }
 
         .dev-avatar {
@@ -492,8 +527,8 @@
         }
 
         :root.dark-theme .dev-avatar {
-            border-color: #555555;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
         .dev-info h3 {
@@ -508,12 +543,13 @@
             color: var(--accent-secondary);
         }
 
-        :root.dark-theme .dev-info p {
-            color: #999999;
+        :root.dark-theme .dev-info h3 {
+            color: #ffffff;
+            font-family: 'Cinzel', serif;
         }
 
-        :root.dark-theme .dev-info h3 {
-            color: #e0e0e0;
+        :root.dark-theme .dev-info p {
+            color: #b0b0b0;
         }
 
         .footer-info {
@@ -525,7 +561,7 @@
         }
 
         body.theme-transition {
-            animation: themeFlip 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation: themeFlip 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
         @keyframes themeFlip {
@@ -533,17 +569,37 @@
                 filter: brightness(1) saturate(1);
                 transform: scale(1);
             }
-            25% {
-                filter: brightness(0.6) saturate(0.3) blur(2px);
-                transform: scale(0.98);
+            10% {
+                filter: brightness(2) saturate(0) blur(4px) invert(1);
+                transform: scale(1.02);
+            }
+            20% {
+                filter: brightness(0.2) saturate(0) blur(8px);
+                transform: scale(0.92);
+            }
+            30% {
+                filter: brightness(0.1) saturate(0);
+                transform: scale(0.88) rotateZ(0.5deg);
+            }
+            40% {
+                filter: brightness(0.05) saturate(0);
+                transform: scale(0.85);
             }
             50% {
-                filter: brightness(0.3) saturate(0);
-                transform: scale(0.95);
+                filter: brightness(0.02) saturate(0);
+                transform: scale(0.83);
             }
-            75% {
-                filter: brightness(0.6) saturate(0.3) blur(2px);
-                transform: scale(0.98);
+            60% {
+                filter: brightness(0.1) saturate(0);
+                transform: scale(0.85) rotateZ(-0.5deg);
+            }
+            70% {
+                filter: brightness(0.3) saturate(0.2) blur(6px);
+                transform: scale(0.92);
+            }
+            80% {
+                filter: brightness(1.5) saturate(0) blur(2px) invert(0.5);
+                transform: scale(1.01);
             }
             100% {
                 filter: brightness(1) saturate(1);
@@ -635,12 +691,12 @@
             setTimeout(() => {
                 html.classList.toggle('dark-theme');
                 localStorage.setItem('darkTheme', html.classList.contains('dark-theme'));
-            }, 600); // Половина от 1.2s анимации
+            }, 900); // Половина от 1.8s анимации
             
             // Убираем класс анимации после завершения
             setTimeout(() => {
                 body.classList.remove('theme-transition');
-            }, 1200);
+            }, 1800);
         }
 
         // Загрузка сохраненной тему при загрузке
@@ -669,13 +725,14 @@
                 this.y = y;
                 
                 if (isDarkTheme) {
-                    // Дымовые частицы для темной темы
-                    this.size = Math.random() * 5 + 2.5;
-                    this.speedX = (Math.random() - 0.5) * 0.8;
-                    this.speedY = Math.random() * 0.6 - 0.3;
-                    this.life = 100;
-                    this.color = `rgba(200, 200, 200, ${0.4 + Math.random() * 0.3})`;
-                    this.gravity = 0.02;
+                    // Молниеносные частицы для темной темы
+                    this.size = Math.random() * 4 + 1;
+                    this.speedX = (Math.random() - 0.5) * 1.2;
+                    this.speedY = (Math.random() - 0.5) * 1.2;
+                    this.life = 80;
+                    this.color = `rgba(255, 255, 255, ${0.6 + Math.random() * 0.4})`;
+                    this.gravity = 0;
+                    this.brightness = 0.7 + Math.random() * 0.3;
                 } else {
                     // Оригинальные пиксельные частицы
                     this.size = Math.random() * 3.5 + 1.5;
@@ -698,12 +755,28 @@
 
             draw(isDarkTheme) {
                 ctx.fillStyle = this.color;
-                ctx.globalAlpha = isDarkTheme ? (this.life / 100) * 0.6 : (this.life / 48);
+                ctx.globalAlpha = isDarkTheme ? (this.life / 80) * 0.8 : (this.life / 48);
                 
                 if (isDarkTheme) {
-                    // Дымовой эффект
+                    // Молниеносный эффект - звездообразные частицы
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    for (let i = 0; i < 4; i++) {
+                        const angle = (Math.PI * 2 * i) / 4;
+                        const px = Math.cos(angle) * this.size;
+                        const py = Math.sin(angle) * this.size;
+                        if (i === 0) {
+                            ctx.moveTo(this.x + px, this.y + py);
+                        } else {
+                            ctx.lineTo(this.x + px, this.y + py);
+                        }
+                    }
+                    ctx.closePath();
+                    ctx.fill();
+                    
+                    // Дополнительный блеск
+                    ctx.fillStyle = `rgba(255, 255, 255, ${(this.life / 80) * 0.4})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
                     ctx.fill();
                 } else {
                     // Пиксельный эффект
