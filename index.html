@@ -16,6 +16,15 @@
             --glass-border: rgba(255, 255, 255, 0.10);
         }
 
+        :root.dark-theme {
+            --bg-dark: #0a0a0a;
+            --accent-primary: #2a2a2a;
+            --accent-secondary: #4a4a4a;
+            --accent-glow: #1a1a1a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.06);
+        }
+
         * {
             box-sizing: border-box;
             transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
@@ -45,6 +54,53 @@
             filter: blur(3px);
         }
 
+        :root.dark-theme .nebula-bg {
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(200, 100, 50, 0.25) 0%, transparent 55%),
+                radial-gradient(circle at 75% 75%, rgba(150, 70, 40, 0.2) 0%, transparent 60%),
+                radial-gradient(circle at 50% 40%, rgba(100, 50, 30, 0.15) 0%, transparent 70%),
+                linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            animation: smokePlume 35s infinite alternate ease-in-out;
+        }
+
+        @keyframes smokePlume {
+            0% {
+                background: 
+                    radial-gradient(circle at 25% 25%, rgba(200, 100, 50, 0.25) 0%, transparent 55%),
+                    radial-gradient(circle at 75% 75%, rgba(150, 70, 40, 0.2) 0%, transparent 60%),
+                    radial-gradient(circle at 50% 40%, rgba(100, 50, 30, 0.15) 0%, transparent 70%),
+                    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            }
+            25% {
+                background: 
+                    radial-gradient(circle at 35% 20%, rgba(220, 120, 60, 0.28) 0%, transparent 55%),
+                    radial-gradient(circle at 65% 80%, rgba(160, 80, 45, 0.22) 0%, transparent 60%),
+                    radial-gradient(circle at 50% 50%, rgba(120, 60, 35, 0.18) 0%, transparent 70%),
+                    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            }
+            50% {
+                background: 
+                    radial-gradient(circle at 50% 30%, rgba(200, 80, 40, 0.22) 0%, transparent 55%),
+                    radial-gradient(circle at 40% 70%, rgba(150, 60, 30, 0.18) 0%, transparent 60%),
+                    radial-gradient(circle at 60% 50%, rgba(100, 40, 20, 0.12) 0%, transparent 70%),
+                    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            }
+            75% {
+                background: 
+                    radial-gradient(circle at 30% 35%, rgba(210, 100, 50, 0.26) 0%, transparent 55%),
+                    radial-gradient(circle at 70% 65%, rgba(160, 75, 40, 0.21) 0%, transparent 60%),
+                    radial-gradient(circle at 50% 45%, rgba(110, 55, 30, 0.16) 0%, transparent 70%),
+                    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            }
+            100% {
+                background: 
+                    radial-gradient(circle at 25% 25%, rgba(200, 100, 50, 0.25) 0%, transparent 55%),
+                    radial-gradient(circle at 75% 75%, rgba(150, 70, 40, 0.2) 0%, transparent 60%),
+                    radial-gradient(circle at 50% 40%, rgba(100, 50, 30, 0.15) 0%, transparent 70%),
+                    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            }
+        }
+
         @keyframes nebulaPulse {
             0%   { opacity: 0.9; transform: scale(1); }
             100% { opacity: 1; transform: scale(1.07); }
@@ -71,9 +127,19 @@
             pointer-events: none;
         }
 
+        :root.dark-theme .glow-overlay {
+            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), 
+                        rgba(255, 255, 255, 0.12) 0%, rgba(0, 0, 0, 0.35) 35%, transparent 65%);
+        }
+
         .header {
             padding: 130px 20px 70px;
             text-align: center;
+            color: #fff;
+        }
+
+        :root.dark-theme .header {
+            color: #e0e0e0;
         }
 
         .logo-container {
@@ -90,6 +156,10 @@
             animation: float 6s infinite ease-in-out;
         }
 
+        :root.dark-theme .logo-img {
+            filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.9)) brightness(0.9);
+        }
+
         .main-title {
             font-size: clamp(3.4rem, 9.5vw, 6.2rem);
             font-weight: 900;
@@ -101,6 +171,14 @@
             background-size: 250% 250%;
             animation: titleGradient 10s linear infinite;
             filter: drop-shadow(0 20px 40px rgba(255, 42, 109, 0.6));
+        }
+
+        :root.dark-theme .main-title {
+            background: linear-gradient(90deg, #ffffff, #e8e8e8, #cccccc, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.8)) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.9));
         }
 
         @keyframes titleGradient {
@@ -127,16 +205,31 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
+        :root.dark-theme .tab-btn {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            color: rgba(255, 255, 255, 0.75);
+        }
+
         .tab-btn:hover {
             color: white;
             transform: translateY(-5px);
             border-color: var(--accent-secondary);
         }
 
+        :root.dark-theme .tab-btn:hover {
+            border-color: #666666;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+        }
+
         .tab-btn.active {
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
             color: white;
             box-shadow: 0 25px 50px rgba(255, 42, 109, 0.5);
+        }
+
+        :root.dark-theme .tab-btn.active {
+            background: linear-gradient(90deg, #444444, #666666);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.1);
         }
 
         .container {
@@ -168,12 +261,22 @@
             overflow: hidden;
             backdrop-filter: blur(24px);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        :root.dark-theme .card {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), inset 0 0 20px rgba(255, 255, 255, 0.05);
         }
 
         .card:hover {
             transform: translateY(-20px) scale(1.035);
             border-color: var(--accent-secondary);
             box-shadow: 0 45px 100px rgba(255, 42, 109, 0.4);
+        }
+
+        :root.dark-theme .card:hover {
+            border-color: #555555;
+            box-shadow: 0 45px 100px rgba(0, 0, 0, 0.95), 0 0 30px rgba(255, 255, 255, 0.08);
         }
 
         .card-img {
@@ -197,6 +300,11 @@
             font-size: 1.6rem;
             font-weight: 800;
             margin-bottom: 30px;
+            color: #fff;
+        }
+
+        :root.dark-theme .card-title {
+            color: #e0e0e0;
         }
 
         .btn-group {
@@ -215,9 +323,39 @@
             border: none;
         }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Стили для лейблов на карточках */
+        .card-label {
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            background: var(--accent-primary);
+            padding: 6px 15px;
+            border-radius: 12px;
+            font-size: 10.5px;
+            font-weight: 900;
+            z-index: 2;
+        }
+
+        :root.dark-theme .card-label {
+            background: #555555;
+            color: #e0e0e0;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        }
+
         .btn-download {
             background: white;
             color: #0a0308;
+        }
+
+        :root.dark-theme .btn-download {
+            background: #e0e0e0;
+            color: #1a1a1a;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
         }
 
         .btn-download:hover {
@@ -226,15 +364,33 @@
             box-shadow: 0 0 45px var(--accent-glow);
         }
 
+        :root.dark-theme .btn-download:hover {
+            background: linear-gradient(90deg, #555555, #777777);
+            color: white;
+            box-shadow: 0 0 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.2);
+        }
+
         .btn-secondary {
             background: rgba(255,255,255,0.07);
             color: white;
             border: 1px solid var(--glass-border);
         }
 
+        :root.dark-theme .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.08);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+        }
+
         .btn-secondary:hover {
             background: rgba(255,255,255,0.15);
             border-color: var(--accent-secondary);
+        }
+
+        :root.dark-theme .btn-secondary:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: #666666;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
         }
 
         /* Модальное окно — исправленное и красивое */
@@ -250,6 +406,10 @@
             padding: 20px;
         }
 
+        :root.dark-theme #modal {
+            background: rgba(10, 10, 10, 0.98);
+        }
+
         .modal-content {
             background: rgba(20, 8, 15, 0.98);
             padding: 50px 45px;
@@ -261,10 +421,23 @@
             box-shadow: 0 30px 80px rgba(255, 42, 109, 0.35);
         }
 
+        :root.dark-theme .modal-content {
+            background: rgba(20, 20, 20, 0.99);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(255, 255, 255, 0.05);
+        }
+
         .modal-content h2 {
             margin: 0 0 25px 0;
             font-size: 2rem;
             color: var(--accent-secondary);
+        }
+
+        :root.dark-theme .modal-content h2 {
+            color: #e0e0e0;
+        }
+
+        :root.dark-theme .modal-content p {
+            color: #d0d0d0 !important;
         }
 
         /* Футер */
@@ -274,6 +447,11 @@
             background: linear-gradient(to top, rgba(10, 3, 8, 0.95), transparent);
             backdrop-filter: blur(15px);
             border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        :root.dark-theme footer {
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.98), transparent);
+            border-top: 1px solid rgba(255,255,255,0.03);
         }
 
         .dev-profile {
@@ -289,10 +467,19 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
         }
 
+        :root.dark-theme .dev-profile {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
+        }
+
         .dev-profile:hover {
             transform: translateY(-6px);
             border-color: var(--accent-secondary);
             box-shadow: 0 25px 55px rgba(255, 42, 109, 0.35);
+        }
+
+        :root.dark-theme .dev-profile:hover {
+            border-color: #555555;
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.1);
         }
 
         .dev-avatar {
@@ -302,6 +489,11 @@
             object-fit: cover;
             border: 2px solid var(--accent-primary);
             box-shadow: 0 0 25px rgba(255, 42, 109, 0.5);
+        }
+
+        :root.dark-theme .dev-avatar {
+            border-color: #555555;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
         .dev-info h3 {
@@ -316,11 +508,47 @@
             color: var(--accent-secondary);
         }
 
+        :root.dark-theme .dev-info p {
+            color: #999999;
+        }
+
+        :root.dark-theme .dev-info h3 {
+            color: #e0e0e0;
+        }
+
         .footer-info {
             margin-top: 45px;
             opacity: 0.4;
             font-size: 13px;
             letter-spacing: 2px;
+            color: #fff;
+        }
+
+        body.theme-transition {
+            animation: themeFlip 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes themeFlip {
+            0% {
+                filter: brightness(1) saturate(1);
+                transform: scale(1);
+            }
+            25% {
+                filter: brightness(0.6) saturate(0.3) blur(2px);
+                transform: scale(0.98);
+            }
+            50% {
+                filter: brightness(0.3) saturate(0);
+                transform: scale(0.95);
+            }
+            75% {
+                filter: brightness(0.6) saturate(0.3) blur(2px);
+                transform: scale(0.98);
+            }
+            100% {
+                filter: brightness(1) saturate(1);
+                transform: scale(1);
+            }
         }
 
         @keyframes float {
@@ -373,11 +601,55 @@
             </div>
         </div>
         <div class="footer-info">
-            Автор: Pettanko • NieTracker © 2025—2026
+            Автор: Pettanko • NieTracker <span id="copyright-symbol" style="cursor: pointer; user-select: none;">©</span> 2025—2026
         </div>
     </footer>
 
     <script>
+        // Счетчик кликов на ©
+        let copyrightClicks = 0;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyrightSymbol = document.getElementById('copyright-symbol');
+            if (copyrightSymbol) {
+                copyrightSymbol.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    copyrightClicks++;
+                    
+                    if (copyrightClicks === 7) {
+                        toggleDarkTheme();
+                        copyrightClicks = 0;
+                    }
+                });
+            }
+        });
+
+        function toggleDarkTheme() {
+            const html = document.documentElement;
+            const body = document.body;
+            
+            // Добавляем класс анимации
+            body.classList.add('theme-transition');
+            
+            // После завершения анимации, переключаем тему
+            setTimeout(() => {
+                html.classList.toggle('dark-theme');
+                localStorage.setItem('darkTheme', html.classList.contains('dark-theme'));
+            }, 600); // Половина от 1.2s анимации
+            
+            // Убираем класс анимации после завершения
+            setTimeout(() => {
+                body.classList.remove('theme-transition');
+            }, 1200);
+        }
+
+        // Загрузка сохраненной тему при загрузке
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('darkTheme') === 'true') {
+                document.documentElement.classList.add('dark-theme');
+            }
+        });
+
         // Пиксельные частицы
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
@@ -391,37 +663,68 @@
 
         class Particle {
             constructor(x, y) {
+                const isDarkTheme = document.documentElement.classList.contains('dark-theme');
+                
                 this.x = x;
                 this.y = y;
-                this.size = Math.random() * 3.5 + 1.5;
-                this.speedX = Math.random() * 1.4 - 0.7;
-                this.speedY = Math.random() * 1.4 - 0.7;
-                this.life = 48;
-                this.color = `hsl(330, 95%, ${78 + Math.random() * 22}%)`;
+                
+                if (isDarkTheme) {
+                    // Дымовые частицы для темной темы
+                    this.size = Math.random() * 5 + 2.5;
+                    this.speedX = (Math.random() - 0.5) * 0.8;
+                    this.speedY = Math.random() * 0.6 - 0.3;
+                    this.life = 100;
+                    this.color = `rgba(200, 200, 200, ${0.4 + Math.random() * 0.3})`;
+                    this.gravity = 0.02;
+                } else {
+                    // Оригинальные пиксельные частицы
+                    this.size = Math.random() * 3.5 + 1.5;
+                    this.speedX = Math.random() * 1.4 - 0.7;
+                    this.speedY = Math.random() * 1.4 - 0.7;
+                    this.life = 48;
+                    this.color = `hsl(330, 95%, ${78 + Math.random() * 22}%)`;
+                    this.gravity = 0;
+                }
             }
 
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                this.life -= 1.15;
+                this.speedY += this.gravity;
+                this.life -= this.life > 50 ? 1.15 : 2;
                 this.speedX *= 0.97;
                 this.speedY *= 0.97;
             }
 
-            draw() {
+            draw(isDarkTheme) {
                 ctx.fillStyle = this.color;
-                ctx.globalAlpha = this.life / 48;
-                ctx.fillRect(this.x - this.size/2, this.y - this.size/2, this.size, this.size);
+                ctx.globalAlpha = isDarkTheme ? (this.life / 100) * 0.6 : (this.life / 48);
+                
+                if (isDarkTheme) {
+                    // Дымовой эффект
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    // Пиксельный эффект
+                    ctx.fillRect(this.x - this.size/2, this.y - this.size/2, this.size, this.size);
+                }
             }
         }
 
         function animateParticles() {
+            const isDarkTheme = document.documentElement.classList.contains('dark-theme');
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            if (Math.random() < 0.7) particles.push(new Particle(mouseX, mouseY));
+            
+            // Увеличить генерацию частиц в темной теме
+            const spawnChance = isDarkTheme ? 0.85 : 0.7;
+            if (Math.random() < spawnChance) particles.push(new Particle(mouseX, mouseY));
 
             for (let i = particles.length - 1; i >= 0; i--) {
                 particles[i].update();
-                particles[i].draw();
+                particles[i].draw(isDarkTheme);
+                
+                const maxLife = isDarkTheme ? 100 : 48;
                 if (particles[i].life <= 0) particles.splice(i, 1);
             }
             requestAnimationFrame(animateParticles);
@@ -451,7 +754,7 @@
 
         function createCard(item) {
             let label = item.label ? 
-                `<div style="position:absolute; top:22px; left:22px; background:var(--accent-primary); padding:6px 15px; border-radius:12px; font-size:10.5px; font-weight:900; z-index:2;">${item.label}</div>` : '';
+                `<div class="card-label">${item.label}</div>` : '';
 
             let btns = `<a href="${item.downloadUrl}" target="_blank" class="btn btn-download">СКАЧАТЬ</a>`;
            
