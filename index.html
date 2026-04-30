@@ -11,8 +11,8 @@
             --accent-primary: #ff2a6d;
             --accent-secondary: #ff79b5;
             --accent-glow: #ff4da6;
-            --glass: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.10);
         }
 
         * {
@@ -30,7 +30,7 @@
             position: relative;
         }
 
-        /* Тёмный розовый градиентный фон */
+        /* Фон */
         .nebula-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -49,7 +49,7 @@
             100% { opacity: 1; transform: scale(1.07); }
         }
 
-        /* Canvas с пиксельными частицами */
+        /* Частицы за курсором */
         #particle-canvas {
             position: fixed;
             top: 0; left: 0;
@@ -60,7 +60,6 @@
             opacity: 0.85;
         }
 
-        /* Динамическое свечение за курсором */
         .glow-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -69,20 +68,17 @@
             background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), 
                         rgba(255, 77, 166, 0.18) 0%, transparent 45%);
             pointer-events: none;
-            opacity: 0.7;
         }
 
         .header {
             padding: 130px 20px 70px;
             text-align: center;
-            position: relative;
         }
 
         .logo-container {
             width: 145px;
             height: 145px;
             margin: 0 auto 40px;
-            position: relative;
         }
 
         .logo-img {
@@ -111,7 +107,6 @@
             50% { background-position: 100% 50%; }
         }
 
-        /* Навигация */
         .nav-tabs {
             display: flex;
             justify-content: center;
@@ -135,7 +130,6 @@
             color: white;
             transform: translateY(-5px);
             border-color: var(--accent-secondary);
-            box-shadow: 0 20px 45px rgba(255, 42, 109, 0.35);
         }
 
         .tab-btn.active {
@@ -166,7 +160,6 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* Карточки с усиленным glassmorphism */
         .card {
             background: var(--glass);
             border: 1px solid var(--glass-border);
@@ -218,6 +211,7 @@
             font-weight: 800;
             text-align: center;
             cursor: pointer;
+            border: none;
         }
 
         .btn-download {
@@ -232,17 +226,47 @@
         }
 
         .btn-secondary {
-            background: rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.07);
             color: white;
             border: 1px solid var(--glass-border);
         }
 
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.15);
             border-color: var(--accent-secondary);
         }
 
-        /* === ФУТЕР С ПРОФИЛЕМ РАЗРАБОТЧИКА === */
+        /* Модальное окно — исправленное и красивое */
+        #modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 3, 8, 0.95);
+            backdrop-filter: blur(25px);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: rgba(20, 8, 15, 0.98);
+            padding: 50px 45px;
+            border-radius: 32px;
+            max-width: 520px;
+            width: 100%;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(255, 42, 109, 0.35);
+        }
+
+        .modal-content h2 {
+            margin: 0 0 25px 0;
+            font-size: 2rem;
+            color: var(--accent-secondary);
+        }
+
+        /* Футер */
         footer {
             padding: 100px 20px 70px;
             text-align: center;
@@ -289,7 +313,6 @@
             margin: 4px 0 0;
             font-size: 0.95rem;
             color: var(--accent-secondary);
-            opacity: 0.9;
         }
 
         .footer-info {
@@ -297,6 +320,11 @@
             opacity: 0.4;
             font-size: 13px;
             letter-spacing: 2px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
     </style>
 </head>
@@ -324,12 +352,12 @@
         <div id="other" class="grid"></div>
     </div>
 
-    <!-- Модальное окно -->
+    <!-- Исправленная модалка -->
     <div id="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <h2 style="margin-top:0;">ИНСТРУКЦИЯ</h2>
-            <p id="modal-text" style="color: rgba(255,255,255,0.75); line-height: 1.85;"></p>
-            <button class="btn btn-download" style="width: 100%; margin-top: 25px;" onclick="closeModal()">
+            <h2>ИНСТРУКЦИЯ</h2>
+            <p id="modal-text" style="color: rgba(255,255,255,0.85); line-height: 1.85; font-size: 1.05rem;"></p>
+            <button class="btn btn-download" style="width: 100%; margin-top: 30px; padding: 18px;" onclick="closeModal()">
                 ПОНЯТНО
             </button>
         </div>
@@ -349,7 +377,7 @@
     </footer>
 
     <script>
-        // Пиксельные частицы за курсором
+        // Пиксельные частицы
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -364,48 +392,43 @@
             constructor(x, y) {
                 this.x = x;
                 this.y = y;
-                this.size = Math.random() * 3 + 1.5;
+                this.size = Math.random() * 3.5 + 1.5;
                 this.speedX = Math.random() * 1.4 - 0.7;
                 this.speedY = Math.random() * 1.4 - 0.7;
-                this.life = 50;
-                this.color = `hsl(330, 95%, ${75 + Math.random() * 25}%)`;
+                this.life = 48;
+                this.color = `hsl(330, 95%, ${78 + Math.random() * 22}%)`;
             }
 
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                this.life -= 1.1;
-                this.speedX *= 0.975;
-                this.speedY *= 0.975;
+                this.life -= 1.15;
+                this.speedX *= 0.97;
+                this.speedY *= 0.97;
             }
 
             draw() {
                 ctx.fillStyle = this.color;
-                ctx.globalAlpha = this.life / 50;
+                ctx.globalAlpha = this.life / 48;
                 ctx.fillRect(this.x - this.size/2, this.y - this.size/2, this.size, this.size);
             }
         }
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            if (Math.random() < 0.65) {
-                particles.push(new Particle(mouseX, mouseY));
-            }
+            if (Math.random() < 0.7) particles.push(new Particle(mouseX, mouseY));
 
             for (let i = particles.length - 1; i >= 0; i--) {
                 particles[i].update();
                 particles[i].draw();
                 if (particles[i].life <= 0) particles.splice(i, 1);
             }
-
             requestAnimationFrame(animateParticles);
         }
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-
             document.getElementById('glow-overlay').style.setProperty('--mouse-x', `${e.clientX}px`);
             document.getElementById('glow-overlay').style.setProperty('--mouse-y', `${e.clientY}px`);
         });
@@ -414,7 +437,7 @@
         resizeCanvas();
         animateParticles();
 
-        // === Основной функционал ===
+        // Основной функционал
         let globalData = { games: [], other: [] };
 
         async function loadData() {
