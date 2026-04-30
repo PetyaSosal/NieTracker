@@ -41,6 +41,11 @@
       "instruction": "Версия игры состоит из модов + встроенного RTX разработчиком Pettanko (создатель сайта). Системные требования будут немного завышены, но не значительно (примерно нагруз на 20-40 фпс). Версия выделяется на фоне других версий игры, поэтому играть с друзьями исключительно этой версией :3",
       "downloadUrl": "https://www.dropbox.com/scl/fi/73fmv9lft66htp17l5dr6/Content-WarningRTXPTTEDTH.rar?rlkey=gfwjec9u6sxj405sdo6aubccy&st=a9sj0x2a&dl=1"
     },
+    {
+      "title": "The Coffin of Andy and Leyley (С русским языком)",
+      "image": "https://steamah.com/wp-content/uploads/2023/10/The-Coffin-of-Andy-and-Leyley.jpg",
+      "downloadUrl": "https://www.dropbox.com/scl/fi/u9vfc2qylomi237v7hf7j/The-Coffin-of-Andy-and-Leyley.zip?rlkey=bdakhllnubba6aoxq3uybvgjk&st=2fvgofzh&dl=1"
+    },
     { 
       "title": "The Planet Crafter + DLC",
       "image": "https://i.ytimg.com/vi/7a-fzjxfutU/maxresdefault.jpg",
@@ -115,13 +120,6 @@
       "title": "Adobe Photoshop Lightroom Classic",
       "image": "https://amcad.ru/upload/iblock/74c/74c00c6f2daf70e342e4b640a08fe099.jpg",
       "downloadUrl": "https://mega.nz/file/mgJUEQTK#JgOqJley6eAtKgpKbgUpBEVHMAyznXTddzcREwKEmW0",
-      "instruction": "Распакуйте и пользуйтесь!",
-      "getUrl": ""
-    },
-    {
-      "title": "Soundpad",
-      "image": "https://i.ytimg.com/vi/-nFkfgZfCgA/maxresdefault.jpg",
-      "downloadUrl": "https://www.dropbox.com/scl/fi/u63e0yx834cp4pjfcauqa/Soundpad.v4.0.30.7z?rlkey=vym39w4q5p8b8zhcakz58h00i&st=tkwwaelf&dl=1",
       "instruction": "Распакуйте и пользуйтесь!",
       "getUrl": ""
     },
