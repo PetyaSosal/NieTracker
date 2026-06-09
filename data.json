@@ -98,6 +98,20 @@
       "getUrl": ""
     },
     {
+      "title": "MyDockFinder",
+      "image": "https://clan.fastly.steamstatic.com/images/41462933/af054f4c939c161b1cd1f866ef655c4ea2441e54.jpg",
+      "downloadUrl": "https://www.dropbox.com/scl/fi/xforunui3u4t4ykigztcp/MyDockFinder.zip?rlkey=h2oc26xkfdd9av93i060r7gs0&e=1&st=12c52jvm&dl=1",
+      "instruction": "Делает из Windows 10/11 целый MacOS. Штучка создана китайцами, файл официальный со стима крякнут просто. Так что при вирус тотале пишется, что там 4 фигни, но это всё китайские крякусы без майнера, проверено лаунчером.",
+      "getUrl": ""
+    },
+    {
+      "title": "ClownFish Voice Changer",
+      "image": "https://images.wondershare.com/filmora/article-images/2022/11/clownfish-voice-changer-windows-1.jpg",
+      "downloadUrl": "https://clownfish-translator.com/voicechanger/download/download64f.php?v=203",
+      "instruction": "Бесплатный системный voice changer для Windows, который в реальном времени меняет голос пользователя в любых приложениях (Discord, Skype, игры, стримы и т.д.). Поддерживает множество эффектов (робот, женщина, мужчина, ребёнок, эхо, инопланетянин и др.), работает на уровне драйвера звука и не требует сложной настройки.",
+      "getUrl": ""
+    },
+    {
       "title": "NekoBox",
       "image": "https://static21.tgcnt.ru/posts/_0/cf/cf1c4685502b4540ad7cffb117592a06.jpg",
       "downloadUrl": "https://github.com/qr243vbi/nekobox/releases?ysclid=mlrp3756ux446470785",
