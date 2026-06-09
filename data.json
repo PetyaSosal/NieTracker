@@ -77,10 +77,10 @@
       "getUrl": ""
     },
     {
-      "title": "?",
-      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/ee/10/33ee108e-1cf8-1ec0-dce8-77846175e4ff/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/1200x600wa.png",
-      "downloadUrl": "https://www.wemod.com/download",
-      "instruction": "Полезный VPN, файл добавлен в случае проблем с GitHub у россиян.",
+      "title": "Discord",
+      "image": "https://static.wikia.nocookie.net/discord-wikia/images/1/15/Image6.png/revision/latest?cb=20230513114418&path-prefix=ru",
+      "downloadUrl": "https://discord.com/api/downloads/distributions/app/installers/latest?channel=stable&platform=win&arch=x64",
+      "instruction": "",
       "getUrl": ""
     },
     {
