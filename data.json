@@ -70,6 +70,20 @@
       "getUrl": ""
     },
     {
+      "title": "TG WS Proxy",
+      "image": "https://github.com/Flowseal/tg-ws-proxy/raw/main/docs/images/workflow.png",
+      "downloadUrl": "https://github.com/Flowseal/tg-ws-proxy/releases",
+      "instruction": "Обходит блокировку Telegram на территори России. Создатель Zapret YT/DS.",
+      "getUrl": ""
+    },
+    {
+      "title": "?",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/ee/10/33ee108e-1cf8-1ec0-dce8-77846175e4ff/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/1200x600wa.png",
+      "downloadUrl": "https://www.wemod.com/download",
+      "instruction": "Полезный VPN, файл добавлен в случае проблем с GitHub у россиян.",
+      "getUrl": ""
+    },
+    {
       "title": "IObit Advanced SystemCare",
       "image": "https://i.ytimg.com/vi/qSLgX70U75Q/maxresdefault.jpg",
       "downloadUrl": "https://www.dropbox.com/scl/fi/t4bhopxx6gc9vpwrgpsig/Advanced-SystemCare-Pro-18.2.0.223-Multilingual.rar?rlkey=eenlh2coi97sqpp4kbn18m05w&st=27i9pil1&dl=1",
@@ -151,10 +165,24 @@
       "getUrl": ""
     },
     {
+      "title": "Steam",
+      "image": "https://vgtimes.ru/uploads/tags_images/steam-7722.jpg",
+      "downloadUrl": "https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe",
+      "instruction": "Быстрее тут скачать, чем с официального сайта.",
+      "getUrl": ""
+    },
+    {
       "title": "Bandicam",
       "image": "https://i.ytimg.com/vi/6SQe4CNVmlw/maxresdefault.jpg",
       "downloadUrl": "https://www.dropbox.com/scl/fi/v1v38zc50uxlgtduo6mhc/Bandicam_8.3.0.2533.zip?rlkey=2s9k19nz9ezcglnco19nzdn5a&st=7s9ky9yl&dl=1",
       "instruction": "Распакуйте и пользуйтесь!",
+      "getUrl": ""
+    },
+    {
+      "title": "Zapret YT/DS",
+      "image": "https://i.ytimg.com/vi/FMtve8b1eaY/maxresdefault.jpg",
+      "downloadUrl": "https://github.com/Flowseal/zapret-discord-youtube/releases",
+      "instruction": "Популярный в России инструмент для обхода блокировки YouTube и Discord (ещё блокировки серверов Google и Cloudfare). Последние версии выкатываются сюда.",
       "getUrl": ""
     }
   ]
