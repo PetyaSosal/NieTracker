@@ -104,10 +104,16 @@
       "instruction": "Скачайте на официальном сайте GitHub версию программы. Как по мне, самый наилучший VPN!"
     },
     {
-      "title": "NekoBox для андроид",
-      "image": "https://en.nekoboxforandroid.org/wp-content/uploads/2024/01/1706144483-nekoboxforandroid.jpg",
-      "downloadUrl": "https://github.com/Matsuridayo/NekoBoxForAndroid/releases?ysclid=mlrruc4ovv527315736",
-      "instruction": "Скачайте на официальном сайте GitHub версию программы для андроид. Как по мне, самый наилучший VPN!"
+      "title": "Augram Desktop (Telegram)",
+      "image": "https://trashbox.ru/ifiles2/2077822_157a81_oblozhka.png/ayugram-obzor-14.webp",
+      "downloadUrl": "https://github.com/AyuGram/AyuGramDesktop/releases",
+      "instruction": "Тот же Telegram, но со своими интересными и особенными функциями: Полный режим призрака (гибкий), История сообщений, Анти-отзыв, Настройка шрифта, Режим стримера, Локальный Telegram Premium, Переводчик, Предпросмотр медиа и быстрая реакция при force click (macOS), Улучшенный внешний вид"
+    },
+    {
+      "title": "Telegram Desktop",
+      "image": "https://t.ctcdn.com.br/r9-2VZInL7diJ_HPi_Ina3cimhE=/1600x900/smart/i610.jpeg",
+      "downloadUrl": "https://telegram.org/dl/desktop/win64_portable",
+      "instruction": "Скачивается Portable-версия, так что всё в удобном формате :3"
     },
     {
       "title": "After Effects",
