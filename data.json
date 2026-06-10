@@ -88,8 +88,15 @@
     },
     {
       "title": "Discord",
-      "image": "https://static.wikia.nocookie.net/discord-wikia/images/1/15/Image6.png/revision/latest?cb=20230513114418&path-prefix=ru",
+      "image": "https://i.pinimg.com/originals/0d/8a/b1/0d8ab1f85ef4d999962f9996c3971979.jpg",
       "downloadUrl": "https://discord.com/api/downloads/distributions/app/installers/latest?channel=stable&platform=win&arch=x64",
+      "instruction": "",
+      "getUrl": ""
+    },
+    {
+      "title": "OBS Stream",
+      "image": "https://i.pinimg.com/originals/48/6b/9e/486b9e4ab6fa6eeb63906c77e54dd20c.png",
+      "downloadUrl": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-32.1.2-Windows-x64-Installer.exe",
       "instruction": "",
       "getUrl": ""
     },
