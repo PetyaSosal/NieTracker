@@ -177,6 +177,20 @@
       "getUrl": ""
     },
     {
+      "title": "Rufus",
+      "image": "https://i.pinimg.com/736x/33/ed/7d/33ed7d0bffed18fb944eb944002bb11f.jpg",
+      "downloadUrl": "https://github.com/pbatard/rufus/releases",
+      "instruction": "",
+      "getUrl": ""
+    },
+    {
+      "title": "Radmin VPN",
+      "image": "https://freevpnmentor.com/wp-content/uploads/2024/06/2935361928_preview_radmin__vpn.png",
+      "downloadUrl": "https://download.radmin-vpn.com/download/files/Radmin_VPN_2.0.4899.9.exe",
+      "instruction": "",
+      "getUrl": ""
+    },
+    {
       "title": "OBS Stream",
       "image": "https://i.pinimg.com/originals/48/6b/9e/486b9e4ab6fa6eeb63906c77e54dd20c.png",
       "downloadUrl": "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-32.1.2-Windows-x64-Installer.exe",
